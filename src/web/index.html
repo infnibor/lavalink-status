@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lavalink Status</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
     <style>
         body {
             transition: background-color 0.3s, color 0.3s;
@@ -90,16 +90,16 @@
             <a href="https://github.com/infnibor/lavalink-status"
                 class="flex items-center space-x-1 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-lg"
                 target="_blank">
-                <i class="fa fa-github"></i>
+                <i class="fab fa-github"></i>
             </a>
             <button id="theme-toggle"
                 class="flex items-center space-x-1 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-lg">
-                <i class="fa fa-moon-o"></i>
+                <i class="fa fa-moon"></i>
             </button>
         </div>
     </nav>
 
-    <main class="flex-grow container mx-auto pt-20">
+    <main class="flex-grow container mx-auto pt-20 pb-14">
         <div id="loading" class="loading font-semibold text-lg text-center">Fetching stats...</div>
         <div id="refresh-notice" class="refresh-notice font-semibold text-lg text-center mt-4">This page reloads every 1
             minute.</div>
@@ -117,8 +117,8 @@
         <div class="card p-3" style="background-color: #202c34;">
             <p class="text-center text-lg font-semibold text-white">
                 Made by 
-                <a href="https://github.com/LewdHuTao" class="text-cyan-400 hover:underline">LewdHuTao</a> & 
-                <a href="https://github.com/infnibor" class="text-cyan-400 hover:underline">InfNibor</a>
+                <a href="https://github.com/LewdHuTao" class="hover:underline">LewdHuTao</a> & 
+                <a href="https://github.com/infnibor" class="hover:underline">InfNibor</a>
             </p>
         </div>
     </footer>
@@ -134,19 +134,19 @@
 
             if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
-                icon.classList.remove('fa-moon-o');
-                icon.classList.add('fa-sun-o');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
             }
 
             themeToggleBtn.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
                 if (document.body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon-o');
-                    icon.classList.add('fa-sun-o');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
                     localStorage.setItem('theme', 'dark');
                 } else {
-                    icon.classList.remove('fa-sun-o');
-                    icon.classList.add('fa-moon-o');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
                     localStorage.setItem('theme', 'light');
                 }
             });
