@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { EmbedBuilder, resolveColor, ActivityType } = require("discord.js");
 const config = require("../config");
 const moment = require("moment");
@@ -13,7 +14,11 @@ const arrayChunker = (array, chunkSize = 5) => {
 
 module.exports = async (client) => {
   const prettyBytes = (await import("pretty-bytes")).default;
-  const channel = await client.channels.fetch(config.channelId);
+  const channel = await client.channels.fetch(process.env.CHANNELID);
+  if (!channel) {
+    console.log(colors.red("[CLIENT] Channel not found!"));
+    return;
+  }
   const embed = new EmbedBuilder()
     .setColor(resolveColor("#2F3136"))
     .setDescription("Fetching Stats From Lavalink Server");
@@ -63,7 +68,7 @@ module.exports = async (client) => {
       all.push(info.join("\n"));
       expressStatus.push({
         node: node.identifier,
-        online: node.connected ? true : false,
+        online: !!node.connected,
         status: node.connected ? "Connected" : "Disconnected",
         players: node.stats.players,
         activePlayers: node.stats.playingPlayers,
@@ -82,8 +87,8 @@ module.exports = async (client) => {
       });
     });
 
-    if (config.webMonitor === true) {
-      fetch(`http://localhost:${config.expressPort}/stats`, {
+    if (process.env.WEBMONITOR === "true") {
+      fetch(`http://localhost:${process.env.EXPRESSPORT}/stats`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ stats: expressStatus }),

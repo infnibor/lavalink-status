@@ -1,17 +1,11 @@
 module.exports = {
-  token: process.env.token || "", // Your bot token
-  channelId: process.env.channelId || "", //Channel Id you want to send the message
-
-  webMonitor: true, // Set to false if you don't want to use web-monitor
-  expressPort: process.env.expressPort || 3000, // Port for web monitor
-
   nodes: [
     {
       host: "",
       password: "",
       port: 2333,
       identifier: "",
-      secure: true,
+      secure: false,
       reconnectTimeout: 300000,
       reconnectTries: 100,
     },
@@ -20,7 +14,7 @@ module.exports = {
       password: "",
       port: 2333,
       identifier: "",
-      secure: true,
+      secure: false,
       reconnectTimeout: 300000,
       reconnectTries: 100,
     },
@@ -29,7 +23,7 @@ module.exports = {
       password: "",
       port: 2333,
       identifier: "",
-      secure: true,
+      secure: false,
       reconnectTimeout: 300000,
       reconnectTries: 100,
     },

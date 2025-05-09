@@ -1,5 +1,5 @@
+require('dotenv').config();
 const express = require("express");
-const { expressPort } = require("../config");
 const stats = require("./stats/router");
 const info = require("./info/router");
 const badge_players = require("./api/v1/badge/players/router");
@@ -21,11 +21,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.listen(expressPort || 3000, () => {
+app.listen(process.env.EXPRESSPORT || 3000, () => {
   console.log(
     colors.green(
       `[WEB-MONITOR] Server is listening at http://localhost:${
-        expressPort || 3000
+        process.env.EXPRESSPORT || 3000
       }`
     )
   );

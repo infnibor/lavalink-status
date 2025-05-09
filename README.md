@@ -1,6 +1,7 @@
 <h1 align="center">Lavalink Status</h1>
 
-<p align="center"><strong>Note:</strong> This branch supports only Lavalink v4. Lavalink v3 no longer maintained so please update your Lavalink</p>
+> [!NOTE]
+> This supports only Lavalink v4. Lavalink v3 no longer maintained so please update your Lavalink
 
 ## Installation Guide
 
@@ -10,11 +11,12 @@
 2. **Clone the Repository**:
     - Clone the repository or download the ZIP file:
     ```sh
-    git clone https://github.com/LewdHuTao/Lavalink-Status.git
+    git clone https://github.com/infnibor/Lavalink-Status.git
     ```
 
 3. **Configure the Bot**:
-    - Fill in the [config.js](https://github.com/LewdHuTao/Lavalink-Status/blob/main/src/config.js) file with your Lavalink Setting, Bot Token, and Channel ID where you want to send the status updates.
+    - Copy the [.env.example](https://github.com/infnibor/Lavalink-Status/blob/main/.env.example) file to .env and fill in all required value.
+    - Then, in the [config.js](https://github.com/infnibor/Lavalink-Status/blob/main/src/config.js) file, complete the data of your LavaLink nodes.
 
 4. **Install Required Packages**:
     - Run the following command in your console:
@@ -33,14 +35,12 @@
     ```
 
 6. **Report Issue**:
-    - If you encounter any issues or the code doesn’t work, please [create an issue](https://github.com/LewdHuTao/Lavalink-Status/issues).
+    - If you encounter any issues or the code doesn’t work, please [create an issue](https://github.com/infnibor/Lavalink-Status/issues/new/choose).
 
 ## Web Monitor
 
-- Preview: https://lavalink.shittybot.xyz
-
 1. **Enable Web Monitor**:
-    - Set `webMonitor` to `true` in the [config.js](https://github.com/LewdHuTao/Lavalink-Status/blob/main/src/config.js) file.
+    - Set `WEBMONITOR` to `true` in the your `.env` file.
 
 2. **Access the Web Monitor**:
     - Open your browser and navigate to `http://localhost:3000`.
@@ -55,12 +55,6 @@
 ### Badge Icon
 
 You can embed these badge icons in any .md file to show your node status or node players.
-
-- Preview
-
-![Node Status](https://lavalink.shittybot.xyz/api/v1/badge/status/3) 
-<br>
-![Node Players](https://lavalink.shittybot.xyz/api/v1/badge/players/3)
 
 - Endpoints:
 

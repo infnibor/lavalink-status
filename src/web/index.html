@@ -83,11 +83,11 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 min-h-screen flex flex-col">
     <nav class="bg-gray-800 p-4 text-white flex justify-between items-center fixed w-full top-0 z-10">
         <a class="text-2xl font-semibold" href="#">Lavalink Status</a>
         <div class="flex items-center space-x-4">
-            <a href="https://github.com/lewdhutao/lavalink-status"
+            <a href="https://github.com/infnibor/lavalink-status"
                 class="flex items-center space-x-1 bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded text-lg"
                 target="_blank">
                 <i class="fa fa-github"></i>
@@ -99,12 +99,12 @@
         </div>
     </nav>
 
-    <div class="container mx-auto pt-20">
+    <main class="flex-grow container mx-auto pt-20">
         <div id="loading" class="loading font-semibold text-lg text-center">Fetching stats...</div>
         <div id="refresh-notice" class="refresh-notice font-semibold text-lg text-center mt-4">This page reloads every 1
             minute.</div>
         <div id="stats" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"></div>
-    </div>
+    </main>
 
     <div id="modal" class="modal hidden">
         <div class="modal-content">
@@ -113,10 +113,13 @@
         </div>
     </div>
 
-    <footer>
-        <div class="card mt-10 p-3 bg-white">
-            <p class="text-center text-lg font-semibold">Made with ❤️ by <a href="https://github.com/LewdHuTao"
-                    class="text-blue-600">LewdHuTao</a></p>
+    <footer class="mt-auto">
+        <div class="card p-3" style="background-color: #202c34;">
+            <p class="text-center text-lg font-semibold text-white">
+                Made by 
+                <a href="https://github.com/LewdHuTao" class="text-cyan-400 hover:underline">LewdHuTao</a> & 
+                <a href="https://github.com/infnibor" class="text-cyan-400 hover:underline">InfNibor</a>
+            </p>
         </div>
     </footer>
 
@@ -226,9 +229,7 @@
 <p><strong>Lavaplayer Version:</strong> <pre class="pre-wrap bg-gray-300 p-2 rounded rounded-md">${nodeInfo.lavaplayer || "Unknown"}</pre></p>
 <p><strong>Plugins:</strong> <pre class="pre-wrap bg-gray-300 p-2 rounded rounded-md">${(nodeInfo.plugins?.map(p => `${p.name} v${p.version}`).join(', ') || "Unknown")}</pre></p>
 <p><strong>Sources:</strong> <pre class="pre-wrap bg-gray-300 p-2 rounded rounded-md">${nodeInfo.sourceManagers?.map(source => capitalizeFirstLetter(source)).join(', ') || "Unknown"}</pre></p>
-<p><strong>Filters:</strong> <pre class="pre-wrap bg-gray-300 p-2 rounded rounded-md">${nodeInfo.filters?.map(filter => capitalizeFirstLetter(filter)).join(', ') || "Unknown"}</pre></p>
-
-            `;
+<p><strong>Filters:</strong> <pre class="pre-wrap bg-gray-300 p-2 rounded rounded-md">${nodeInfo.filters?.map(filter => capitalizeFirstLetter(filter)).join(', ') || "Unknown"}</pre></p>`;
                                 } else {
                                     modalDetails.innerHTML = '<p>Error fetching node details.</p>';
                                 }

@@ -1,7 +1,8 @@
+require('dotenv').config();
 const { Client, GatewayIntentBits, Partials } = require("discord.js");
 const { readdirSync } = require("fs");
 const Manager = require("./wrapper/index");
-const { token, nodes, webMonitor } = require("./config");
+const { nodes } = require("./config");
 const colors = require("colors");
 
 const client = new Client({
@@ -28,8 +29,10 @@ readdirSync("./src/events/").forEach((file) => {
   client.on(eventName, event.bind(null, client));
 });
 
-client.login(token);
+client.login(process.env.TOKEN).then(() => {
+  console.log(colors.green("[BOT] Logged in successfully"));
+});
 
-if (webMonitor === true) {
+if (process.env.WEBMONITOR === "true") {
   require("./web/server");
 }
